@@ -4,10 +4,15 @@ import com.example.entity.Course;
 import com.example.entity.Curriculum;
 import com.example.service.CourseService;
 import com.example.service.CurriculumService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CourseInitializer {
 
+    @Autowired
     private CourseService courseService;
+    @Autowired
     private CurriculumService curriculumService;
 
     public void initialize() {

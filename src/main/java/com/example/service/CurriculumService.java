@@ -2,8 +2,13 @@ package com.example.service;
 
 import com.example.entity.Curriculum;
 import com.example.repository.CurriculumRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CurriculumService {
+
+    @Autowired
     private CurriculumRepository curriculumRepository;
 
     public boolean add(Curriculum curriculum) {

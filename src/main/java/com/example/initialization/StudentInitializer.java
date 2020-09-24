@@ -3,13 +3,18 @@ package com.example.initialization;
 import com.example.entity.Student;
 import com.example.service.CurriculumService;
 import com.example.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+@Component
 public class StudentInitializer {
 
+    @Autowired
     private StudentService studentService;
+    @Autowired
     private CurriculumService curriculumService;
 
     public void initialize() {

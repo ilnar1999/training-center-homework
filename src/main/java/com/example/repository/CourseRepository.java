@@ -2,12 +2,15 @@ package com.example.repository;
 
 import com.example.entity.Course;
 import lombok.NonNull;
+import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class CourseRepository {
 
-    private List<Course> courses;
+    private List<Course> courses = new ArrayList<>();
 
     public boolean add(@NonNull Course newCourse) {
         if (this.getByTitle(newCourse.getTitle()) != null) {
