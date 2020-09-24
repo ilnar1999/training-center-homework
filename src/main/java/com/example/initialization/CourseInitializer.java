@@ -5,9 +5,13 @@ import com.example.entity.Curriculum;
 import com.example.service.CourseService;
 import com.example.service.CurriculumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
 @Component
+@Lazy
 public class CourseInitializer {
 
     @Autowired
@@ -15,6 +19,8 @@ public class CourseInitializer {
     @Autowired
     private CurriculumService curriculumService;
 
+
+    @PostConstruct
     public void initialize() {
         Curriculum curriculum = curriculumService.getByTitle("J2EE Developer");
         this.courseService.add(new Course("Технология Java Servlets", 16, curriculum));
