@@ -39,5 +39,21 @@ public class StudentInitializer {
                         new ArrayList<>(Arrays.asList(4, 5, 3, 2, 3, 3, 5, 5))
                 )
         );
+        this.studentService.add(
+                new Student(
+                        "Gates Bill",
+                        this.curriculumService.getByTitle("Java Developer"),
+                        LocalDate.of(2020, 6, 13),
+                        new ArrayList<>(Arrays.asList(2, 1, 3, 2, 3, 3, 1, 2, 3, 2))
+                )
+        );
+        this.studentService.add(
+                new Student(
+                        "Jobs Steve",
+                        this.curriculumService.getByTitle("J2EE Developer"),
+                        LocalDate.of(2020, 1, 11),
+                        new ArrayList<>(Arrays.asList(5, 5, 5, 5, 5, 4, 5, 5, 4, 5))
+                )
+        );
     }
 }

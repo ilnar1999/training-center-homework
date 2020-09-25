@@ -8,7 +8,7 @@ import java.util.Map;
 @Service
 public class ParseService {
 
-    private final Map<String, String> data = new HashMap<>();
+    private Map<String, String> data;
     private String[] expression;
 
     private static final String ERROR_KEY = "error";
@@ -17,13 +17,14 @@ public class ParseService {
 
     public Map<String, String> parseExpression(String[] expression) {
         this.expression = expression;
+        this.data = new HashMap<>();
         switch (this.expression[0]) {
             case "show":
                 this.data.put("action", "show");
                 this.show();
                 break;
             case "":
-                this.data.put(ERROR_KEY, "");
+                this.data.put(ERROR_KEY, "Введена пустая строка!");
                 break;
             default:
                 this.data.put(ERROR_KEY, "Некорректное выражение! Для выхода введите команду \"exit\"!");
@@ -39,11 +40,11 @@ public class ParseService {
         switch (this.expression[1]) {
             case "student":
                 this.data.put("object", "student");
-                if (this.expression.length < 3) {
-                    this.data.put(ERROR_KEY, "Не указано имя студента! Пример: \"Ivanov_Ivan\"");
+                if (this.expression.length < 4) {
+                    this.data.put(ERROR_KEY, "Не указано имя или фамилия студента! Пример: \"Ivanov Ivan\"");
                     return;
                 }
-                this.data.put("fullName", this.parseName(this.expression[2]));
+                this.data.put("fullName", this.parseName());
                 break;
             case "students":
                 this.data.put("object", "students");
@@ -92,7 +93,7 @@ public class ParseService {
         this.data.put(filter, DEFAULT_FILTER);
     }
 
-    private String parseName(String name) {
-        return name.replace("_", " ");
+    private String parseName() {
+        return expression[2] + " " + expression[3];
     }
 }

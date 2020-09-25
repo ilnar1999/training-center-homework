@@ -5,6 +5,8 @@ import com.example.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
 
@@ -23,5 +25,9 @@ public class StudentService {
             return null;
         }
         return this.studentRepository.getByFullName(fullName);
+    }
+
+    public List<Student> getStudents(String order, String filter) {
+        return this.studentRepository.getStudents(order, filter);
     }
 }

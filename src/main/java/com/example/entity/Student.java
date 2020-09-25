@@ -42,22 +42,21 @@ public class Student {
     }
 
     public void setCountOfDaysUntilFinishCurriculum() {
-        int totalCountOfHours = curriculum.getCourses().stream().mapToInt(Course::getDuration).sum();
+        int totalCountOfHours = this.curriculum.getCourses().stream().mapToInt(Course::getDuration).sum();
         int totalCountOfDays = totalCountOfHours % 8 == 0 ? totalCountOfHours / 8 : totalCountOfHours / 8 + 1;
         int countOfFinishedDays = this.marks.size();
         this.countOfDaysUntilFinishCurriculum =  totalCountOfDays - countOfFinishedDays;
     }
 
     public void setAverageMark() {
-        this.averageMark = marks.stream().mapToInt(mark -> mark).average().orElse(0);
-        this.averageMark = (int) (averageMark * 10) / 10.0;
+        this.averageMark = this.marks.stream().mapToInt(mark -> mark).average().orElse(0);
     }
 
     public void setMayBeContinueTraining() {
         int countCurrentMarks = this.marks.size();
         int countRemainingMarks = this.countOfDaysUntilFinishCurriculum;
-        int totalCountOfDays = countCurrentMarks + countCurrentMarks;
-        double maxAverageMark = (countCurrentMarks * this.averageMark + countRemainingMarks * 5) / totalCountOfDays;
+        int totalCountOfMarks = countCurrentMarks + countRemainingMarks;
+        double maxAverageMark = (countCurrentMarks * this.averageMark + countRemainingMarks * 5) / totalCountOfMarks;
         this.mayBeContinueTraining = maxAverageMark >= 4.5;
     }
 
