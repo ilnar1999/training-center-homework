@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.entity.Course;
 import com.example.entity.Curriculum;
 import com.example.repository.CurriculumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,9 @@ public class CurriculumService {
             return null;
         }
         return this.curriculumRepository.getByTitle(title);
+    }
+
+    public boolean addCourseInCurriculum(Curriculum curriculum, Course course) {
+        return curriculumRepository.addCourseInCurriculum(curriculum, course);
     }
 }

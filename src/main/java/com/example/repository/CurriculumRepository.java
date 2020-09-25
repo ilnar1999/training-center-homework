@@ -1,5 +1,6 @@
 package com.example.repository;
 
+import com.example.entity.Course;
 import com.example.entity.Curriculum;
 import lombok.NonNull;
 import org.springframework.stereotype.Repository;
@@ -28,5 +29,15 @@ public class CurriculumRepository {
             }
         }
         return null;
+    }
+
+    public boolean addCourseInCurriculum(Curriculum curriculum, Course course) {
+        List<Course> courses = curriculum.getCourses();
+        if (!courses.contains(course)) {
+            courses.add(course);
+            curriculum.setCourses(courses);
+            return true;
+        }
+        return false;
     }
 }

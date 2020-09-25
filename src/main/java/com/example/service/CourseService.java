@@ -10,12 +10,14 @@ public class CourseService {
 
     @Autowired
     private CourseRepository courseRepository;
+    @Autowired
+    private CurriculumService curriculumService;
 
     public boolean add(Course course) {
         if (course == null) {
             return false;
         }
-        return this.courseRepository.add(course);
+        return this.courseRepository.add(course) & curriculumService.addCourseInCurriculum(course.getCurriculum(), course);
     }
 
     public Course getByTitle(String title) {
