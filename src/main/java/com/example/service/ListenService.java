@@ -3,6 +3,7 @@ package com.example.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class ListenService {
     @Autowired
     private ParseService parseService;
 
-
+    @PostConstruct
     public void run() {
         String[] exception;
         Scanner scanner;
