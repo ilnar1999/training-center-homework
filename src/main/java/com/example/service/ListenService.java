@@ -23,7 +23,7 @@ public class ListenService {
             scanner = new Scanner(System.in);
             exception = scanner.nextLine().split(" ");
             if (exception[0].equals("exit")) {
-                System.exit(0);
+                break;
             }
             data = this.parseService.parseExpression(exception);
             this.displayService.print(data);
