@@ -1,3 +1,5 @@
 /training-center-homework.iml
 /.idea/
 /target/
+/implementation/target/
+/interfaces-and-pojos/target/
