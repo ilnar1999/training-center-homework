@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 
 @Component
 @Lazy
-public class CourseInitializer {
+public class CourseInitializer implements Initializer {
 
     @Autowired
     private CourseService courseService;
@@ -20,6 +20,7 @@ public class CourseInitializer {
     private CurriculumService curriculumService;
 
 
+    @Override
     @PostConstruct
     public void initialize() {
         Curriculum curriculum = curriculumService.getByTitle("J2EE Developer");

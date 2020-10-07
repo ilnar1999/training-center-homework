@@ -14,13 +14,14 @@ import java.util.Arrays;
 
 @Component
 @Lazy
-public class StudentInitializer {
+public class StudentInitializer implements Initializer {
 
     @Autowired
     private StudentService studentService;
     @Autowired
     private CurriculumService curriculumService;
 
+    @Override
     @PostConstruct
     public void initialize() {
         this.studentService.add(

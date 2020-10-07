@@ -11,11 +11,12 @@ import java.util.ArrayList;
 
 @Component
 @Lazy
-public class CurriculumInitializer {
+public class CurriculumInitializer implements Initializer {
 
     @Autowired
     private CurriculumService curriculumService;
 
+    @Override
     @PostConstruct
     public void initialize() {
         this.curriculumService.add(new Curriculum("J2EE Developer", new ArrayList<>()));
