@@ -26,7 +26,7 @@ public class DisplayService {
                 this.show();
                 break;
             default:
-                System.out.println("Неизвестная ошибка!");
+                System.out.println("РќРµРёР·РІРµСЃС‚РЅР°СЏ РѕС€РёР±РєР°!");
         }
     }
 
@@ -45,12 +45,12 @@ public class DisplayService {
         Student student = studentService.getByFullName(this.data.get("fullName"));
         String statusOfStudy;
         if (student == null) {
-            System.out.println("Ученик не найден!");
+            System.out.println("РЈС‡РµРЅРёРє РЅРµ РЅР°Р№РґРµРЅ!");
             return;
         }
-        statusOfStudy = student.isMayBeContinueTraining() ? "Может продолжить обучение" : "Отчислить";
+        statusOfStudy = student.isMayBeContinueTraining() ? "РњРѕР¶РµС‚ РїСЂРѕРґРѕР»Р¶РёС‚СЊ РѕР±СѓС‡РµРЅРёРµ" : "РћС‚С‡РёСЃР»РёС‚СЊ";
         System.out.printf(
-                "%s - До окончания обучения по программе %s осталось %d д. Средний балл %.2f. %s.%n",
+                "%s - Р”Рѕ РѕРєРѕРЅС‡Р°РЅРёСЏ РѕР±СѓС‡РµРЅРёСЏ РїРѕ РїСЂРѕРіСЂР°РјРјРµ %s РѕСЃС‚Р°Р»РѕСЃСЊ %d Рґ. РЎСЂРµРґРЅРёР№ Р±Р°Р»Р» %.2f. %s.%n",
                 student.getFullName(),
                 student.getCurriculum().getTitle(),
                 student.getCountOfDaysUntilFinishCurriculum(),
@@ -67,9 +67,9 @@ public class DisplayService {
         List<Student> students = this.studentService.getStudents(order, filter);
 
         for (Student student : students) {
-            statusOfStudy = student.isMayBeContinueTraining() ? "Может продолжить обучение" : "Отчислить";
+            statusOfStudy = student.isMayBeContinueTraining() ? "РњРѕР¶РµС‚ РїСЂРѕРґРѕР»Р¶РёС‚СЊ РѕР±СѓС‡РµРЅРёРµ" : "РћС‚С‡РёСЃР»РёС‚СЊ";
             System.out.printf(
-                    "%s - До окончания обучения по программе %s осталось %d д. Средний балл %.2f. %s.%n",
+                    "%s - Р”Рѕ РѕРєРѕРЅС‡Р°РЅРёСЏ РѕР±СѓС‡РµРЅРёСЏ РїРѕ РїСЂРѕРіСЂР°РјРјРµ %s РѕСЃС‚Р°Р»РѕСЃСЊ %d Рґ. РЎСЂРµРґРЅРёР№ Р±Р°Р»Р» %.2f. %s.%n",
                     student.getFullName(),
                     student.getCurriculum().getTitle(),
                     student.getCountOfDaysUntilFinishCurriculum(),

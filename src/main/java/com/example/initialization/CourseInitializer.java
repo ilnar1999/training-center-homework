@@ -24,15 +24,15 @@ public class CourseInitializer implements Initializer {
     @PostConstruct
     public void initialize() {
         Curriculum curriculum = curriculumService.getByTitle("J2EE Developer");
-        this.courseService.add(new Course("Технология Java Servlets", 16, curriculum));
+        this.courseService.add(new Course("РўРµС…РЅРѕР»РѕРіРёСЏ Java Servlets", 16, curriculum));
         this.courseService.add(new Course("Struts Framework", 24, curriculum));
         this.courseService.add(new Course("Spring Framework", 48, curriculum));
         this.courseService.add(new Course("Hibernate", 20, curriculum));
         curriculum = curriculumService.getByTitle("Java Developer");
-        this.courseService.add(new Course("Обзор технологий Java", 8, curriculum));
-        this.courseService.add(new Course("Библиотека JFC/Swing", 16, curriculum));
-        this.courseService.add(new Course("Технология JDBC", 16, curriculum));
-        this.courseService.add(new Course("Технология JAX", 52, curriculum));
-        this.courseService.add(new Course("Библиотеки commons", 44, curriculum));
+        this.courseService.add(new Course("РћР±Р·РѕСЂ С‚РµС…РЅРѕР»РѕРіРёР№ Java", 8, curriculum));
+        this.courseService.add(new Course("Р‘РёР±Р»РёРѕС‚РµРєР° JFC/Swing", 16, curriculum));
+        this.courseService.add(new Course("РўРµС…РЅРѕР»РѕРіРёСЏ JDBC", 16, curriculum));
+        this.courseService.add(new Course("РўРµС…РЅРѕР»РѕРіРёСЏ JAX", 52, curriculum));
+        this.courseService.add(new Course("Р‘РёР±Р»РёРѕС‚РµРєРё commons", 44, curriculum));
     }
 }

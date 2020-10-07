@@ -24,24 +24,24 @@ public class ParseService {
                 this.show();
                 break;
             case "":
-                this.data.put(ERROR_KEY, "Введена пустая строка!");
+                this.data.put(ERROR_KEY, "Р’РІРµРґРµРЅР° РїСѓСЃС‚Р°СЏ СЃС‚СЂРѕРєР°!");
                 break;
             default:
-                this.data.put(ERROR_KEY, "Некорректное выражение! Для выхода введите команду \"exit\"!");
+                this.data.put(ERROR_KEY, "РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ! Р”Р»СЏ РІС‹С…РѕРґР° РІРІРµРґРёС‚Рµ РєРѕРјР°РЅРґСѓ \"exit\"!");
         }
         return this.data;
     }
 
     private void show() {
         if (this.expression.length < 2) {
-            this.data.put(ERROR_KEY, "Не указан объект для отображения! Пример: \"student lastname_firstname\" или \"students\"!");
+            this.data.put(ERROR_KEY, "РќРµ СѓРєР°Р·Р°РЅ РѕР±СЉРµРєС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ! РџСЂРёРјРµСЂ: \"student lastname_firstname\" РёР»Рё \"students\"!");
             return;
         }
         switch (this.expression[1]) {
             case "student":
                 this.data.put("object", "student");
                 if (this.expression.length < 4) {
-                    this.data.put(ERROR_KEY, "Не указано имя или фамилия студента! Пример: \"Ivanov Ivan\"");
+                    this.data.put(ERROR_KEY, "РќРµ СѓРєР°Р·Р°РЅРѕ РёРјСЏ РёР»Рё С„Р°РјРёР»РёСЏ СЃС‚СѓРґРµРЅС‚Р°! РџСЂРёРјРµСЂ: \"Ivanov Ivan\"");
                     return;
                 }
                 this.data.put("fullName", this.parseName());
@@ -52,7 +52,7 @@ public class ParseService {
                 this.addFilter();
                 break;
             default:
-                this.data.put(ERROR_KEY, "Некорректно указан объект для отображения! Пример: \"student lastname_firstname\" или \"students\"!");
+                this.data.put(ERROR_KEY, "РќРµРєРѕСЂСЂРµРєС‚РЅРѕ СѓРєР°Р·Р°РЅ РѕР±СЉРµРєС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ! РџСЂРёРјРµСЂ: \"student lastname_firstname\" РёР»Рё \"students\"!");
         }
     }
 
@@ -68,7 +68,7 @@ public class ParseService {
                         this.data.put(order, "average");
                         return;
                     default:
-                        this.data.put(ERROR_KEY, "Некорректно указан способ сортировки! Пример: \"order=time\" или \"order=average\"");
+                        this.data.put(ERROR_KEY, "РќРµРєРѕСЂСЂРµРєС‚РЅРѕ СѓРєР°Р·Р°РЅ СЃРїРѕСЃРѕР± СЃРѕСЂС‚РёСЂРѕРІРєРё! РџСЂРёРјРµСЂ: \"order=time\" РёР»Рё \"order=average\"");
                         return;
                 }
             }
@@ -85,7 +85,7 @@ public class ParseService {
                         this.data.put(filter, "may_continue");
                         return;
                     default:
-                        this.data.put(ERROR_KEY, "Некорректно указан фильтр! Пример: \"filter=may_continue\"");
+                        this.data.put(ERROR_KEY, "РќРµРєРѕСЂСЂРµРєС‚РЅРѕ СѓРєР°Р·Р°РЅ С„РёР»СЊС‚СЂ! РџСЂРёРјРµСЂ: \"filter=may_continue\"");
                         return;
                 }
             }
